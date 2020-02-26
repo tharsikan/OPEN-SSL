@@ -22,7 +22,20 @@ encript file _msg_
 **algo :** aes-256 , **mod :** cbc (kind of secure)  
 **in :** input is..  
 
-2 . `openssl enc -aes-256-cbc -base64 -in msg -out enc`  
+-`openssl enc -aes-256-cbc -base64 -in msg -out enc`  
 to store as a file _enc_
+
+2 . openssl enc -aes-256-cbc -d -base64 -in enc  
+decrypt file _enc_  
+**d :** decrypt  
+
+-`openssl enc -aes-256-cbc -d -base64 -in enc -k pass -out dec`
+you can give key here allso
+**k :** password
+
+-`openssl enc -aes-256-cbc -d -base64 -in enc -out dec`
+to store as a file _dec_
+
+
 
 
