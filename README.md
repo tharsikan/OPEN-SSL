@@ -29,9 +29,9 @@ to store as a file _enc_
 decrypt file _enc_  
 **d :** decrypt  
 
-4. `openssl enc -aes-256-cbc -d -base64 -in enc -k pass -out dec`
-you can give key here allso
-**k :** password
+4. `openssl enc -aes-256-cbc -d -base64 -in enc -k pass -out dec`  
+you can give key here allso  
+**k :** password  
 
 5. `openssl enc -aes-256-cbc -d -base64 -in enc -out dec`    
 to store as a file _dec_  
