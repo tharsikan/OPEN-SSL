@@ -1,21 +1,21 @@
 ## Encrypt & Decrypt with OpenSSL
 
 ### Basic commads
-1. `openssl version`
-    version of openssl
+1. `openssl version`  
+    version of openssl  
     
-2. `openssl list -cipher-commands`
-    list cipher commads
+2. `openssl list -cipher-commands`  
+    list cipher commads  
     
-3. `nano msg`
-    create a file _msg_
-    **nano** create file ,,   ^ == CTRL
+3. `nano msg`  
+    create a file _msg_  
+    **nano** create file ,,   ^ == CTRL  
     
-4. `cat msg`
-    veiw file _msg_
-    **cat** view file
+4. `cat msg`  
+    veiw file _msg_  
+    **cat** view file  
     
- ### encrypt&decrypt **aes** 
+ ### encrypt&decrypt AES algorithm 
 
 - Bulleted
 - List
