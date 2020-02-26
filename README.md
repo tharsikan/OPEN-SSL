@@ -44,36 +44,64 @@ to store as a file _dec_
 1. `openssl genrsa -out keypairB.pen 2048`       
 genrate rsa keypair    
 **genrsa :** genrate rsa keypair  
-you can store keys with in (.pen file) 2048 bit  
+you can store keys with in (.pen file) 2048 bit   
 
-`cat keypairB.pen`  	
-just view  
+`cat keypairB.pen`    	
+just view    
 
-`openssl rsa -in keypairB.pen -text`
-**text :** view all helper values to generate keypair
-**rsa :** deal with rsa
+`openssl rsa -in keypairB.pen -text`    
+**text :** view all helper values to generate keypair  
+**rsa :** deal with rsa  
 
-`openssl rsa -in keypairB.pen -text -noout`
-noout : view key in base 16 formate
+`openssl rsa -in keypairB.pen -text -noout`  
+noout : view key in base 16 formate  
 
-2. `openssl rsa -in keypairB.pen -pubout`
-		**pubout :** get the public_key from keypair so we can share it
+2. `openssl rsa -in keypairB.pen -pubout`  
+		**pubout :** get the public_key from keypair so we can share it  
 
-3. `openssl rsa -in keypairB.pen -pubout -out publicB.pen`
-		just store that
-
-
-4. `ln -s /root/Desktop/TestOpenSSL/A/publicA.pen`
-		get A's public key (publicA.pen coppies here..B)
-		**ln :** link 
-		**s :** source
-
-5. `openssl rsautl -encrypt -in msgg -out encc -inkey publicA.pen -pubin`
-		encrypt msg by using A's public key
-		**rsautl :** rsa utilities(operations) 
- 		**encrypt :** encrypt msg by using A's public key
-		**inkey :** use this key .. this may be certificate/ public_key
-		**pubin :** so explicitly tell this is public key 
+3. `openssl rsa -in keypairB.pen -pubout -out publicB.pen`  
+		just store that  
 
 
+4. `ln -s /root/Desktop/TestOpenSSL/A/publicA.pen`  
+		get A's public key (just publicA.pen coppy here..B)  
+		**ln :** link   
+		**s :** source  
 
+5. `openssl rsautl -encrypt -in msgg -out encc -inkey publicA.pen -pubin`  
+		encrypt msg by using A's public key  
+		**rsautl :** rsa utilities(operations)   
+ 		**encrypt :** encrypt msg by using A's public key  
+		**inkey :** use this key .. this may be certificate/ public_key  
+		**pubin :** so explicitly tell this is public key   
+
+
+**_CREAE NEW FOLDER A WITH IN THAT_**  
+
+1. `cp /root/Desktop/TestOpenSSL/B/encc received`  
+		coppy encrypted file _encc_ rename it as _received_  
+
+2. `openssl rsautl -decrypt -in received -out msg -inkey keypairB.pen`  
+		decrypt : decrypt _encc_ by using A's private key (but keypaitB.pen)  
+		
+
+### sign with RSA algorithm
+
+1. `openssl rsautl -sign -in msgg -out signed -inkey keypairA.pen`  
+		sign : sign msgg by using own_private_key  
+
+
+2. `openssl rsautl -verify -in signed -out signedFile -inkey publicA.pen -pubin`  
+		verify : verify the signed(file), by using his_public_key  
+
+#### generate private-key  
+
+1. `openssl rsa -in keypairA.pen -des3 -out privateA.pen`  
+		des3 : algorithm for encrypt privatekey  
+
+2. `openssl rsa -in keypairB.pen -pubout -out publicB.pen`  
+		pubout : get the public_key so we can share it  
+
+`openssl rsautl -sign -in msgg -out signed -inkey keypairA.pen`   
+	when sign you can use this.. private_key(encrypted), than use  keypair(plain text)  
+		
