@@ -2,18 +2,18 @@
 
 ### Basic commads
 1. `openssl version`  
-    version of openssl  
+version of openssl  
     
 2. `openssl list -cipher-commands`  
-    list cipher commads  
+list cipher commads  
     
 3. `nano msg`  
-    create a file _msg_  
-    **nano** create file ,,   ^ == CTRL  
+create a file _msg_  
+**nano :** create file ,,   ^ == CTRL  
     
 4. `cat msg`  
-    veiw file _msg_  
-    **cat** view file  
+veiw file _msg_  
+**cat :** view file  
     
  ### encrypt&decrypt AES algorithm 
 
