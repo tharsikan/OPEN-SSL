@@ -17,12 +17,13 @@ veiw file _msg_
     
 ### encrypt&decrypt AES algorithm 
 
-1. `openssl enc -aes-256-cbc -base64 -in msg  
+1. `openssl enc -aes-256-cbc -base64 -in msg`  
 encript file _msg_  
 **algo :** aes-256 , **mod :** cbc (kind of secure)  
 **in :** input is..  
 
 -`openssl enc -aes-256-cbc -base64 -in msg -out enc`  
+**out :** output is..
 to store as a file _enc_
 
 2 . openssl enc -aes-256-cbc -d -base64 -in enc  
@@ -35,6 +36,15 @@ you can give key here allso
 
 -`openssl enc -aes-256-cbc -d -base64 -in enc -out dec`
 to store as a file _dec_
+
+### encrypt&decrypt RSA algorithm 
+
+**_CREAE NEW FOLDER B WITH IN THAT_**
+
+1. `openssl genrsa -out keypairB.pen 2048`  
+genrate rsa keypair   
+**genrsa :** genrate rsa keypair
+you can store keys with in (.pen file) 2048 bit
 
 
 
