@@ -22,7 +22,7 @@ encript file _msg_
 **algo :** aes-256 , **mod :** cbc (kind of secure)  
 **in :** input is..  
 
-`openssl enc -aes-256-cbc -base64 -in msg -out enc`  
+	`openssl enc -aes-256-cbc -base64 -in msg -out enc`  
 **out :** output is..  
 to store as a file _enc_  
 
@@ -30,11 +30,11 @@ to store as a file _enc_
 decrypt file _enc_  
 **d :** decrypt  
 
-`openssl enc -aes-256-cbc -d -base64 -in enc -k pass -out dec`
+	`openssl enc -aes-256-cbc -d -base64 -in enc -k pass -out dec`
 you can give key here allso
 **k :** password
 
-`openssl enc -aes-256-cbc -d -base64 -in enc -out dec`    
+	`openssl enc -aes-256-cbc -d -base64 -in enc -out dec`    
 to store as a file _dec_  
 
 ### encrypt&decrypt RSA algorithm  
@@ -46,14 +46,14 @@ genrate rsa keypair
 **genrsa :** genrate rsa keypair  
 you can store keys with in (.pen file) 2048 bit   
 
-`cat keypairB.pen`    	
+	`cat keypairB.pen`    	
 just view    
 
-`openssl rsa -in keypairB.pen -text`    
+	`openssl rsa -in keypairB.pen -text`    
 **text :** view all helper values to generate keypair  
 **rsa :** deal with rsa  
 
-`openssl rsa -in keypairB.pen -text -noout`  
+	`openssl rsa -in keypairB.pen -text -noout`  
 noout : view key in base 16 formate  
 
 2. `openssl rsa -in keypairB.pen -pubout`  
@@ -70,10 +70,10 @@ noout : view key in base 16 formate
 
 5. `openssl rsautl -encrypt -in msgg -out encc -inkey publicA.pen -pubin`  
 		encrypt msg by using A's public key  
-		**rsautl :** rsa utilities(operations)   
- 		**encrypt :** encrypt msg by using A's public key  
-		**inkey :** use this key .. this may be certificate/ public_key  
-		**pubin :** so explicitly tell this is public key   
+		**rsautl :** rsa utilities(operations)    
+ 		**encrypt :** encrypt msg by using A's public key   
+		**inkey :** use this key .. this may be certificate/ public_key   
+		**pubin :** so explicitly tell this is public key    
 
 
 **_CREAE NEW FOLDER A WITH IN THAT_**  
@@ -102,6 +102,6 @@ noout : view key in base 16 formate
 2. `openssl rsa -in keypairB.pen -pubout -out publicB.pen`  
 		pubout : get the public_key so we can share it  
 
-`openssl rsautl -sign -in msgg -out signed -inkey keypairA.pen`   
+	`openssl rsautl -sign -in msgg -out signed -inkey keypairA.pen`   
 	when sign you can use this.. private_key(encrypted), than use  keypair(plain text)  
 		
