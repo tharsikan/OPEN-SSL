@@ -78,23 +78,23 @@ _CREAE NEW FOLDER A WITH IN THAT_
 coppy encrypted file _encc_ rename it as _received_  
 
 2. `openssl rsautl -decrypt -in received -out msg -inkey keypairB.pen`  
-decrypt : decrypt _encc_ by using A's private key (but keypaitB.pen)  
+**decrypt :** decrypt _encc_ by using A's private key (but keypaitB.pen)  
 		
 
 ### sign with RSA algorithm  
 1. `openssl rsautl -sign -in msgg -out signed -inkey keypairA.pen`  
-sign : sign msgg by using own_private_key  
+**sign :** sign msgg by using own_private_key  
 
 
 2. `openssl rsautl -verify -in signed -out signedFile -inkey publicA.pen -pubin`  
-verify : verify the _signed_, by using his_public_key  
+**verify :** verify the _signed_, by using his_public_key  
 
 #### generate private-key  
 1. `openssl rsa -in keypairA.pen -des3 -out privateA.pen`  
-des3 : algorithm for encrypt privatekey  
+**des3 :** algorithm for encrypt privatekey  
 
 2. `openssl rsa -in keypairB.pen -pubout -out publicB.pen`  
-pubout : get the public_key so we can share it  
+**pubout :** get the public_key so we can share it  
 
 3. `openssl rsautl -sign -in msgg -out signed -inkey keypairA.pen`   
 when sign you can use this.. private_key(encrypted), than use  keypair(plain text)  
